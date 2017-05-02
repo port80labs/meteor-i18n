@@ -16,7 +16,7 @@ Package.onUse(function(api) {
     'mongo',
     'templating',
     'tracker',
-    'isobuild:compiler-plugin'
+    'isobuild:compiler-plugin@1.0.0'
   ])
   api.addFiles([
     'i18n.lib.js',
