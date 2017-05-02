@@ -1,11 +1,10 @@
 Package.describe({
-  name: 'halunka:i18n',
-  version: '1.1.1',
-  summary: 'Lightweight, reactive, isomorphic, extendable i18n package for meteor using MongoDB',
-  git: 'https://github.com/halunka/meteor-i18n'
+  name: 'port80labs:i18n',
+  version: '2.0.0',
+  summary: 'Lightweight, reactive, isomorphic, extendable i18n package for meteor using MongoDB'
 })
 
-Package.onUse(function (api) {
+Package.onUse(function(api) {
   api.export('i18n')
   api.versionsFrom('METEOR@1.2')
   api.use([
@@ -15,7 +14,8 @@ Package.onUse(function (api) {
     'reactive-dict',
     'mongo',
     'templating',
-    'tracker'
+    'tracker',
+    'isobuild:compiler-plugin'
   ])
   api.addFiles([
     'i18n.lib.js',
@@ -26,9 +26,4 @@ Package.onUse(function (api) {
 Package.registerBuildPlugin({
   name: 'i18n.json',
   sources: ['i18n.build.js']
-})
-
-Package.onTest(function (api) {
-  api.use(['tinytest', 'halunka:i18n', 'underscore', 'reactive-dict', 'tracker'])
-  api.addFiles('tests/i18n.js')
 })
