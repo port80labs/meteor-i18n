@@ -1,6 +1,6 @@
 i18n = {}
 
-i18n.db = new Mongo.Collection('port80labs-i18n')
+i18n.db = new Mongo.Collection('port80labs:i18n')
 i18n.state = new ReactiveDict('i18nValues')
 i18n.state.set('langs', {})
 i18n.dep = new Tracker.Dependency
@@ -68,17 +68,28 @@ if (Meteor.isServer) {
               $exists: true,
             }
           }).count() === 0) {
-          i18n.db.upsert(
-            (i18n.db.findOne({
+
+          if (i18n.db.find({
               key: key
-            }) || {})._id,
-            {
-              $set: _.extend(
-                {
-                  key: key,
-                  [langKey]: transObject[langKey],
-                }
-              )
+            }).count() === 1)
+            i18n.db.upsert(
+              (i18n.db.findOne({
+                key: key
+              }) || {})._id,
+              {
+                $set: _.extend(
+                  {
+                    key: key,
+                    [langKey]: transObject[langKey],
+                  }
+                )
+              }
+          )
+          else
+
+            i18n.db.insert({
+              key: key,
+              [langKey]: transObject[langKey],
             }
           )
         }
