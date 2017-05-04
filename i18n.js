@@ -1,6 +1,6 @@
 i18n = {}
 
-i18n.db = new Mongo.Collection('port80labs:i18n')
+i18n.db = new Mongo.Collection('port80labs-i18n')
 i18n.state = new ReactiveDict('i18nValues')
 i18n.state.set('langs', {})
 i18n.dep = new Tracker.Dependency
