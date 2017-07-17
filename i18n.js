@@ -7,7 +7,7 @@ i18n.dep = new Tracker.Dependency
 i18n.depChanged = i18n.dep.changed.bind(i18n.dep)
 
 i18n.db.find().observe({
-  addded: i18n.depChanged,
+  added: i18n.depChanged,
   changed: i18n.depChanged,
   removed: i18n.depChanged
 })

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'port80labs:i18n',
-  version: '2.0.2',
+  version: '2.0.3',
   summary: 'Lightweight, reactive, isomorphic, extendable i18n package for meteor using MongoDB',
   git: 'https://github.com/port80labs/meteor-i18n',
 })
